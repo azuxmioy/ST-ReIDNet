@@ -1,0 +1,13 @@
+CUDA_VISIBLE_DEVICES=0,1 python3 baseline.py \
+    -b 128 -j 8 -d DanceReID --split 0 --combine-trainval \
+    -a resnet50 --emb-type Single \
+    --soft-margin --lambda-tri 1.0 --lambda-cla 1.0 \
+    --lr 5e-5 --epochs 100 --step-size 40 --eval-step 10 \
+    --inst-mode \
+    --last-stride 1 \
+    --use-bn \
+    --test-bn \
+    --label-smoothing \
+    --eraser \
+    --data-dir /path/to/dataset/directory \
+    --logs-dir /path/to/saving/directory

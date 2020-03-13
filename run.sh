@@ -1,0 +1,11 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 python3 train.py \
+    -b 24 -j 8 -d DanceReID --name (your_session_name) \
+    --lr 2e-5 --stage 0 --inter-rate 0.7 --skip-frame 10 \
+    --niter 50 --niter-decay 50 --save-step 50 --eval-step 10 \
+    --display-port 6060 --display-freq 5000 --display-id 1 --display-single-pane-ncols 5 \
+    --pose-aug gauss --smooth-label --soft-margin --batch-hard --emb-type Single \
+    --last-stride 1 --emb-smooth --eraser --mask \
+    --lambda-recon 10.0 --lambda-tri 1.0 --lambda-class 1.0 \
+    --lambda-d 0.1 --lambda-dp 0.1 \
+    --dataroot /path/to/dataset/directory \
+    --checkpoints /path/to/saving/directory
